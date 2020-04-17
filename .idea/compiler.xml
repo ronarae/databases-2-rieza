@@ -6,9 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="database2" />
         <module name="databases-2-rieza" />
         <module name="Database 2 startproject" />
+        <module name="database2" />
       </profile>
     </annotationProcessing>
   </component>
