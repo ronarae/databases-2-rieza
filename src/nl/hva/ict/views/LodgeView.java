@@ -7,7 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import nl.hva.ict.models.Lodge;
+import nl.hva.ict.models.SafariLodge;
 
 public class LodgeView extends View {
 
@@ -24,7 +24,7 @@ public class LodgeView extends View {
     private Button btNew;
     private Button btSave;
     private Button btUpdateData;
-    private ListView<Lodge> lodgeViewListView;
+    private ListView<SafariLodge> lodgeViewListView;
     private GridPane rootPane;
 
     public LodgeView() {
@@ -154,7 +154,7 @@ public class LodgeView extends View {
         return btUpdateData;
     }
 
-    public ListView<Lodge> getLodgeViewListView() {
+    public ListView<SafariLodge> getLodgeViewListView() {
         return lodgeViewListView;
     }
 

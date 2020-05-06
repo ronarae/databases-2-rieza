@@ -3,14 +3,14 @@ package nl.hva.ict.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import nl.hva.ict.MainApplication;
-import nl.hva.ict.models.Lodge;
+import nl.hva.ict.models.SafariLodge;
 import nl.hva.ict.views.LodgeView;
 import nl.hva.ict.views.View;
 
 public class LodgeController extends Controller {
 
     private LodgeView lodgeView;
-    private ObservableList<Lodge> lodges;
+    private ObservableList<SafariLodge> safariLodges;
 
     public LodgeController() {
         lodgeView = new LodgeView();
@@ -25,13 +25,13 @@ public class LodgeController extends Controller {
 
     private void loadData(){
         //haal de waardes op uit de database
-       lodges = FXCollections.observableArrayList(MainApplication.getMySQLLodge().getAll());
-        lodgeView.getLodgeViewListView().setItems(lodges);
+       safariLodges = FXCollections.observableArrayList(MainApplication.getMySQLSafariLodge().getAll());
+        lodgeView.getLodgeViewListView().setItems(safariLodges);
     }
 
 
     private void refreshData(){
-       // MainApplication.getMySQLReiziger().reload();
+       MainApplication.getMySQLSafariLodge().reload();
     }
 
     private void save(){
@@ -46,14 +46,14 @@ public class LodgeController extends Controller {
         //Voeg toe
     }
     private void getItemsInFields(){
-        Lodge currentLodge = lodgeView.getLodgeViewListView().getSelectionModel().getSelectedItem();
-        lodgeView.getTxtPrijsPerWeek().setText(currentLodge.getAccommodatie_accomodatiecode());
-        lodgeView.getCheckAutohuur().setText(currentLodge.getAccommodatie_accomodatiecode());
+        SafariLodge currentSafariLodge = lodgeView.getLodgeViewListView().getSelectionModel().getSelectedItem();
+        lodgeView.getTxtPrijsPerWeek().setText(currentSafariLodge.getAccommodatie_accomodatiecode());
+        lodgeView.getCheckAutohuur().setText(currentSafariLodge.getAccommodatie_accomodatiecode());
 
     }
 
     @Override
     public View getView() {
-        return null;
+        return lodgeView;
     }
 }

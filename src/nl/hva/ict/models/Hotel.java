@@ -11,12 +11,9 @@ public class Hotel implements Identifable, Serializable {
     private boolean ontbijt;
 
     public Hotel(String accommodatie_accommodatiecode, int prijsPerNacht, boolean ontbijt) {
-        Accommodatie_accommodatiecode = accommodatie_accommodatiecode;
+        this.Accommodatie_accommodatiecode = accommodatie_accommodatiecode;
         this.prijsPerNacht = prijsPerNacht;
         this.ontbijt = ontbijt;
-    }
-
-    public Hotel(String accommodatiecode, String naam, String stad, String land, String kamertype, int prijsPerNacht, int aantalPersonen, boolean checkOntbijt) {
     }
 
     public String getAccommodatie_accommodatiecode() {
@@ -41,5 +38,21 @@ public class Hotel implements Identifable, Serializable {
 
     public void setOntbijt(boolean ontbijt) {
         this.ontbijt = ontbijt;
+    }
+
+    @Override
+    public String toString() {
+        if (ontbijt == false){
+            return "Accommodatie Code: " + Accommodatie_accommodatiecode + " Prijs per Nacht: " + prijsPerNacht +
+                    " Ontbijt: No";
+        } else {
+            return "Accommodatie Code: " + Accommodatie_accommodatiecode + " Prijs per Nacht: " + prijsPerNacht +
+                    " Ontbijt: Yes";
+
+        }
+
+
+
+
     }
 }

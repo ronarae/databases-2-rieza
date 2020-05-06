@@ -29,8 +29,7 @@ public class HotelController extends Controller {
         hotelView.getHotelsViewListView().setItems(hotels);
     }
     private void refreshData(){
-
-      //  MainApplication.getMySQLReizigers().reload();
+        MainApplication.getMySQLHotel().reload();
     }
 
     private void save(){
@@ -54,6 +53,6 @@ public class HotelController extends Controller {
 
     @Override
     public View getView() {
-        return null;
+        return hotelView;
     }
 }

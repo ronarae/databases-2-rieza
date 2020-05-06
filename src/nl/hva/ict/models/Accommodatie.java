@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 public class Accommodatie implements Identifable, Serializable {
 
-    private String accomodatiecode;
+    private String accommodatiecode;
     private String naam;
     private String stad;
     private String land;
@@ -14,8 +14,8 @@ public class Accommodatie implements Identifable, Serializable {
     private int persoon;
     private String soort;
 
-    public Accommodatie(String accomodatiecode, String naam, String stad, String land, String kamer, int persoon, String soort) {
-        this.accomodatiecode = accomodatiecode;
+    public Accommodatie(String accommodatiecode, String naam, String stad, String land, String kamer, int persoon, String soort) {
+        this.accommodatiecode = accommodatiecode;
         this.naam = naam;
         this.stad = stad;
         this.land = land;
@@ -28,11 +28,11 @@ public class Accommodatie implements Identifable, Serializable {
     }
 
     public String getAccomodatiecode() {
-        return accomodatiecode;
+        return accommodatiecode;
     }
 
     public void setAccomodatiecode(String accomodatiecode) {
-        this.accomodatiecode = accomodatiecode;
+        this.accommodatiecode = accommodatiecode;
     }
 
     public String getNaam() {

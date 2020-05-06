@@ -3,21 +3,17 @@ package nl.hva.ict.models;
 import nl.hva.ict.data.Identifable;
 import java.io.Serializable;
 
-public class Lodge implements Identifable, Serializable {
+public class SafariLodge implements Identifable, Serializable {
 
     private String Accommodatie_accomodatiecode;
-    private int prijsPerWeek;
+    private double prijsPerWeek;
     private boolean autohuur;
 
-    public Lodge(String accommodatie_accomodatiecode, int prijsPerWeek, boolean autohuur) {
+    public SafariLodge(String accommodatie_accomodatiecode, double prijsPerWeek, boolean autohuur) {
         Accommodatie_accomodatiecode = accommodatie_accomodatiecode;
         this.prijsPerWeek = prijsPerWeek;
         this.autohuur = autohuur;
     }
-
-    public Lodge(String accommodatiecode, String naam, String stad, String land, String kamertype, double prijsPerWeek, int aantalPersonen, boolean checkAutohuur) {
-    }
-
 
     public String getAccommodatie_accomodatiecode() {
         return Accommodatie_accomodatiecode;
@@ -27,7 +23,7 @@ public class Lodge implements Identifable, Serializable {
         Accommodatie_accomodatiecode = accommodatie_accomodatiecode;
     }
 
-    public int getPrijsPerWeek() {
+    public double getPrijsPerWeek() {
         return prijsPerWeek;
     }
 
@@ -41,5 +37,17 @@ public class Lodge implements Identifable, Serializable {
 
     public void setAutohuur(boolean autohuur) {
         this.autohuur = autohuur;
+    }
+
+    @Override
+    public String toString() {
+        if (autohuur == false){
+            return "Accommodatie Code: " + Accommodatie_accomodatiecode + " Prijs per week: " + prijsPerWeek +
+                    " Autohuur: No";
+        } else {
+            return "Accommodatie Code: " + Accommodatie_accomodatiecode + " Prijs per week: " + prijsPerWeek +
+                    " Autohuur: Yes";
+
+        }
     }
 }

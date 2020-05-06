@@ -26,15 +26,15 @@ public class MySQLHotel extends MySQL<Hotel> {
             ResultSet rs = executeSelectPreparedStatement(ps);
 
             while (rs.next()) {
-                String accommodatiecode = rs.getString("accommodatiecode");
-                String naam = rs.getString("naam");
-                String stad = rs.getString("stad");
-                String land = rs.getString("land");
-                String kamertype = rs.getString("kamer");
-                int prijsPerNacht = rs.getInt("prijs per nacht");
-                int aantalPersonen = rs.getInt("aantal personen");
-                boolean checkOntbijt = rs.getBoolean("Ontbijt");
-                Hotel hotel = new Hotel(accommodatiecode, naam, stad, land, kamertype, prijsPerNacht, aantalPersonen, checkOntbijt);
+                String Accommodatie_accommodatiecode = rs.getString("Accommodatie_accommodatiecode");
+//                String naam = rs.getString("naam");
+//                String stad = rs.getString("stad");
+//                String land = rs.getString("land");
+//                String kamertype = rs.getString("kamer");
+                int prijsPerNacht = rs.getInt("prijsPerNacht");
+           //     int aantalPersonen = rs.getInt("aantal personen");
+                boolean ontbijt = rs.getBoolean("ontbijt");
+                Hotel hotel = new Hotel(Accommodatie_accommodatiecode,prijsPerNacht, ontbijt);
                 hotels.add(hotel);
             }
         } catch (SQLException e) {
@@ -44,7 +44,7 @@ public class MySQLHotel extends MySQL<Hotel> {
 
     @Override
     public List<Hotel> getAll() {
-        return null;
+        return hotels;
     }
 
     @Override
@@ -65,5 +65,9 @@ public class MySQLHotel extends MySQL<Hotel> {
     @Override
     public void remove(Hotel object) {
 
+    }
+    public void reload(){
+        hotels.clear();
+        load();
     }
 }
