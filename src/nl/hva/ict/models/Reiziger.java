@@ -28,6 +28,9 @@ public class Reiziger implements Identifable, Serializable {
     public Reiziger() {
     }
 
+    public Reiziger(String accommodatiecode, String naam, String stad, String land, String kamertype, double prijsPerWeek, int aantalPersonen, boolean checkAutohuur) {
+    }
+
     public String getReizigersCode() {
         return reizigersCode;
     }

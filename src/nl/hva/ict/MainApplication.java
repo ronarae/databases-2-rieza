@@ -7,6 +7,9 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import nl.hva.ict.controllers.MainController;
+import nl.hva.ict.data.MySQL.MySQL;
+import nl.hva.ict.data.MySQL.MySQLHotel;
+import nl.hva.ict.data.MySQL.MySQLLodge;
 import nl.hva.ict.data.MySQL.MySQLReizigers;
 
 public class MainApplication extends Application {
@@ -28,6 +31,9 @@ public class MainApplication extends Application {
 
     //Static dataconnectors
     private static MySQLReizigers mySQLReizigers = new MySQLReizigers();
+    private static MySQLLodge mySQLLodge = new MySQLLodge();
+    private static MySQLHotel mySQLHotel = new MySQLHotel();
+
     private final int WIDTH = 800;
     private final int HEIGHT = 800;
 
@@ -60,6 +66,10 @@ public class MainApplication extends Application {
     }
 
     public static MySQLReizigers getMySQLReizigers() { return mySQLReizigers; }
+
+    public static  MySQLLodge getMySQLLodge() { return mySQLLodge;}
+
+    public static MySQLHotel getMySQLHotel() { return mySQLHotel;}
 
     @Override
     public void start(Stage stage) {

@@ -16,7 +16,7 @@ public class Hotel implements Identifable, Serializable {
         this.ontbijt = ontbijt;
     }
 
-    public Hotel() {
+    public Hotel(String accommodatiecode, String naam, String stad, String land, String kamertype, int prijsPerNacht, int aantalPersonen, boolean checkOntbijt) {
     }
 
     public String getAccommodatie_accommodatiecode() {

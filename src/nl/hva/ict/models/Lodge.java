@@ -15,8 +15,9 @@ public class Lodge implements Identifable, Serializable {
         this.autohuur = autohuur;
     }
 
-    public Lodge() {
+    public Lodge(String accommodatiecode, String naam, String stad, String land, String kamertype, double prijsPerWeek, int aantalPersonen, boolean checkAutohuur) {
     }
+
 
     public String getAccommodatie_accomodatiecode() {
         return Accommodatie_accomodatiecode;

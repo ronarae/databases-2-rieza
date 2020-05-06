@@ -19,6 +19,7 @@ public class LodgeView extends View {
     private TextField txtPrijsPerWeek;
     private TextField txtAantalPersonen;
     private CheckBox checkAutohuur;
+
     private Button btDelete;
     private Button btNew;
     private Button btSave;
