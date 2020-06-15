@@ -3,6 +3,7 @@ package nl.hva.ict.models;
 import nl.hva.ict.data.Identifable;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class Reservering implements Identifable, Serializable {
@@ -10,11 +11,11 @@ public class Reservering implements Identifable, Serializable {
     private int idReservering;
     private String Accommodatie_accommodatiecode;
     private String Reiziger_reizigersCode;
-    private LocalDate aankomstDatum;
-    private LocalDate vertrekDatum;
+    private Date aankomstDatum;
+    private Date vertrekDatum;
     private boolean betaald;
 
-    public Reservering(int idReservering, String accommodatie_accommodatiecode, String reiziger_reizigersCode, LocalDate aankomstDatum, LocalDate vertrekDatum, boolean betaald) {
+    public Reservering(int idReservering, String accommodatie_accommodatiecode, String reiziger_reizigersCode, Date aankomstDatum, Date vertrekDatum, boolean betaald) {
         this.idReservering = idReservering;
         Accommodatie_accommodatiecode = accommodatie_accommodatiecode;
         Reiziger_reizigersCode = reiziger_reizigersCode;
@@ -47,19 +48,19 @@ public class Reservering implements Identifable, Serializable {
         Reiziger_reizigersCode = reiziger_reizigersCode;
     }
 
-    public LocalDate getAankomstDatum() {
+    public Date getAankomstDatum() {
         return aankomstDatum;
     }
 
-    public void setAankomstDatum(LocalDate aankomstDatum) {
+    public void setAankomstDatum(Date aankomstDatum) {
         this.aankomstDatum = aankomstDatum;
     }
 
-    public LocalDate getVertrekDatum() {
+    public Date getVertrekDatum() {
         return vertrekDatum;
     }
 
-    public void setVertrekDatum(LocalDate vertrekDatum) {
+    public void setVertrekDatum(Date vertrekDatum) {
         this.vertrekDatum = vertrekDatum;
     }
 
