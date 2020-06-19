@@ -54,7 +54,6 @@ public class MySQLHotel extends MySQL<Hotel> {
 
     @Override
     public void add(Hotel object) {
-
     }
 
     @Override
@@ -66,8 +65,11 @@ public class MySQLHotel extends MySQL<Hotel> {
     public void remove(Hotel object) {
 
     }
+
     public void reload(){
         hotels.clear();
         load();
     }
+
+
 }

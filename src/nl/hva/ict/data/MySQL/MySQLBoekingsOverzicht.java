@@ -25,11 +25,8 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
 
     private void load() {
 
-        String sql = "SELECT reservering.idReservering, reservering.aankomstDatum, reservering.vertrekDatum, reservering.betaald," +
-                "reservering.Accommodatie_accommodatiecode, reservering.Reiziger_reizigersCode, accommodatie.naam," +
-                "accommodatie.stad, accommodatie.soort, reiziger.voornaam, reiziger.achternaam, reiziger.plaats" +
-                "FROM accommodatie" +
-                "INNER JOIN reservering on reservering.Accommodatie_accommodatiecode = accommodatie.accommodatiecode" +
+        String sql = "SELECT * " +
+                "FROM accommodatie INNER JOIN reservering on reservering.Accommodatie_accommodatiecode = accommodatie.accommodatiecode " +
                 "INNER JOIN reiziger on reservering.Reiziger_reizigersCode = reiziger.reizigersCode";
 
         try {
@@ -42,7 +39,7 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
                 Date vertrekDatum = rs.getDate("vertrekDatum");
                 boolean betaald = rs.getBoolean("betaald");
                 String accommodatieCode = rs.getString("accommodatieCode");
-                String reizerCode = rs.getString("reizigerCode");
+                String reizigersCode = rs.getString("reizigersCode");
                 String voornaam = rs.getString("voornaam");
                 String achternaam = rs.getString("achternaam");
                 String adres = rs.getString("adres");
@@ -54,8 +51,8 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
                 String accommodatieStad = rs.getString("stad");
                 String accommodatieLand = rs.getString("land");
                 String accommodatieType = rs.getString("soort");
-                Reservering reservering = new Reservering(idReservering, accommodatieCode, reizerCode, aankomstDatum, vertrekDatum, betaald);
-                Reiziger reiziger = new Reiziger(reizerCode, voornaam, achternaam, adres, postcode, plaats, land, hoofdreiziger);
+                Reservering reservering = new Reservering(idReservering, accommodatieCode, reizigersCode, aankomstDatum, vertrekDatum, betaald);
+                Reiziger reiziger = new Reiziger(reizigersCode, voornaam, achternaam, adres, postcode, plaats, land, hoofdreiziger);
                 Accommodatie accommodatie = new Accommodatie();
                 accommodatie.setNaam(accommodatieNaam);
                 accommodatie.setStad(accommodatieStad);
@@ -74,7 +71,9 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
 
         List<BoekingsOverzicht> reserveringVoor = new ArrayList<>();
 
-        String sql = "";
+        String sql = "SELECT * "+
+                "FROM accommodatie INNER JOIN reservering on reservering.Accommodatie_accommodatiecode = accommodatie.accommodatiecode " +
+                "INNER JOIN reiziger on reservering.Reiziger_reizigersCode = reiziger.reizigersCode";
 
         try {
             PreparedStatement ps = getStatement(sql);

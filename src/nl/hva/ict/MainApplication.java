@@ -31,6 +31,7 @@ public class MainApplication extends Application {
     private static MySQLSafariLodge mySQLSafariLodge = new MySQLSafariLodge();
     private static MySQLHotel mySQLHotel = new MySQLHotel();
     private static MySQLBoekingsOverzicht mySQLBoekingsOverzicht = new MySQLBoekingsOverzicht();
+    public static MySQLAccommodatie mySQLAccommodatie = new MySQLAccommodatie();
 
     private final int WIDTH = 800;
     private final int HEIGHT = 800;
@@ -68,6 +69,8 @@ public class MainApplication extends Application {
     public static  MySQLSafariLodge getMySQLSafariLodge() { return mySQLSafariLodge;}
 
     public static MySQLHotel getMySQLHotel() { return mySQLHotel;}
+
+    public static MySQLAccommodatie getMySQLAccommodatie() { return  mySQLAccommodatie;}
 
     public static MySQLBoekingsOverzicht getMySQLBoekingsOverzicht() {
         return mySQLBoekingsOverzicht;
