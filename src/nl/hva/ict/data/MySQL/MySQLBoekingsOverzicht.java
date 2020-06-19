@@ -25,11 +25,11 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
 
     private void load() {
 
-        String sql = "SELECT reservering.idReservering, reservering.aankomstDatum, reservering.vertrekDatum, reservering.betaald,\n" +
-                "reservering.Accommodatie_accommodatiecode, reservering.Reiziger_reizigersCode, accommodatie.naam,\n" +
-                "accommodatie.stad, accommodatie.soort, reiziger.voornaam, reiziger.achternaam, reiziger.plaats\n" +
-                "FROM accommodatie\n" +
-                "INNER JOIN reservering on reservering.Accommodatie_accommodatiecode = accommodatie.accommodatiecode\n" +
+        String sql = "SELECT reservering.idReservering, reservering.aankomstDatum, reservering.vertrekDatum, reservering.betaald," +
+                "reservering.Accommodatie_accommodatiecode, reservering.Reiziger_reizigersCode, accommodatie.naam," +
+                "accommodatie.stad, accommodatie.soort, reiziger.voornaam, reiziger.achternaam, reiziger.plaats" +
+                "FROM accommodatie" +
+                "INNER JOIN reservering on reservering.Accommodatie_accommodatiecode = accommodatie.accommodatiecode" +
                 "INNER JOIN reiziger on reservering.Reiziger_reizigersCode = reiziger.reizigersCode";
 
         try {
