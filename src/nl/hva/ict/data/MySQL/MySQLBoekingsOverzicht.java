@@ -121,7 +121,10 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
         List<Reiziger> geboektOp = new ArrayList<>();
         Date date = Date.valueOf(pDatum);
 
-        String sql = "";
+        String sql = "SELECT reservering.Reiziger_reizigersCode, voornaam, achternaam, plaats FROM reservering" +
+                "INNER JOIN reiziger on resevering.Reiziger_reizigersCode = reiziger.reizigersCode" +
+                "WHERE Accommodatie_accommodatiecode = ? and ? " +
+                "BETWEEN aankomstdatum AND vertrekDatum";
 
         try {
             PreparedStatement ps = getStatement(sql);
@@ -130,13 +133,13 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
             ResultSet rs = executeSelectPreparedStatement(ps);
 
             while (rs.next()) {
-                String reizigerCode = rs.getString("reizigerCode");
+                String reizigersCode = rs.getString("Reiziger_reizigersCode");
                 String reizigerVoornaam = rs.getString("voornaam");
                 String reizigerAchternaam = rs.getString("achternaam");
                 String reizigerPlaats = rs.getString("plaats");
 
                 Reiziger reiziger = new Reiziger();
-                reiziger.setReizigersCode(reizigerCode);
+                reiziger.setReizigersCode(reizigersCode);
                 reiziger.setVoornaam(reizigerVoornaam);
                 reiziger.setAchternaam(reizigerAchternaam);
                 reiziger.setPlaats(reizigerPlaats);

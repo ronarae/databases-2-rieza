@@ -37,7 +37,6 @@ public class BoekingsGeboektOpController extends Controller {
         geboektOpView.getBoekingsOverzichtListView().setItems(reizigers);
 
 
-
     }
 
     @Override
