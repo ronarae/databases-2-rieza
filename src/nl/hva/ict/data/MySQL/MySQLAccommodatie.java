@@ -30,9 +30,9 @@ public class MySQLAccommodatie extends MySQL<Accommodatie>{
                 String stad = rs.getString("stad");
                 String land = rs.getString("land");
                 String kamer = rs.getString("kamer");
-                int personen = rs.getInt("personen");
+                int persoon = rs.getInt("persoon");
                 String soort = rs.getString("soort");
-                accommodaties.add(new Accommodatie(accommodatieCode, naam, stad, land, kamer, personen, soort));
+                accommodaties.add(new Accommodatie(accommodatieCode, naam, stad, land, kamer, persoon, soort));
             }
         } catch (SQLException e) {
             e.printStackTrace();
