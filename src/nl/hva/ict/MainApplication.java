@@ -19,8 +19,8 @@ public class MainApplication extends Application {
     private static final String MYSQL_PASSWORD = "Ruraii2393.";
 
     //Mongo NoSQL
-    private static final String NOSQL_HOST = "mongodb://host1:27017";
-    private static final String NOSQL_DATABASE = "";
+    private static final String NOSQL_HOST = "mongodb+srv://cluster0-ry1mg.azure.mongodb.net";
+    private static final String NOSQL_DATABASE = "dbRona";
 
     //JavaFX
     private static Stage stage;
