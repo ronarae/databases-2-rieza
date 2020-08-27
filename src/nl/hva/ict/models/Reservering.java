@@ -9,19 +9,20 @@ import java.time.LocalDate;
 public class Reservering implements Identifable, Serializable {
 
     private int idReservering;
-    private String Accommodatie_accommodatiecode;
-    private String Reiziger_reizigersCode;
     private Date aankomstDatum;
     private Date vertrekDatum;
     private boolean betaald;
+    private String Accommodatie_accommodatiecode;
+    private String Reiziger_reizigersCode;
 
-    public Reservering(int idReservering, String accommodatie_accommodatiecode, String reiziger_reizigersCode, Date aankomstDatum, Date vertrekDatum, boolean betaald) {
+
+    public Reservering(int idReservering, Date aankomstDatum, Date vertrekDatum, boolean betaald, String accommodatie_accommodatiecode, String reiziger_reizigersCode) {
         this.idReservering = idReservering;
-        Accommodatie_accommodatiecode = accommodatie_accommodatiecode;
-        Reiziger_reizigersCode = reiziger_reizigersCode;
         this.aankomstDatum = aankomstDatum;
         this.vertrekDatum = vertrekDatum;
         this.betaald = betaald;
+        this.Accommodatie_accommodatiecode = accommodatie_accommodatiecode;
+        this.Reiziger_reizigersCode = reiziger_reizigersCode;
     }
 
     public int getIdReservering() {
@@ -70,5 +71,17 @@ public class Reservering implements Identifable, Serializable {
 
     public void setBetaald(boolean betaald) {
         this.betaald = betaald;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservering{" +
+                "idReservering=" + idReservering +
+                ", aankomstDatum=" + aankomstDatum +
+                ", vertrekDatum=" + vertrekDatum +
+                ", betaald=" + betaald +
+                ", accommodatieCode='" + Accommodatie_accommodatiecode + '\'' +
+                ", reizerCode='" + Reiziger_reizigersCode + '\'' +
+                '}';
     }
 }

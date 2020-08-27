@@ -51,7 +51,7 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
                 String accommodatieStad = rs.getString("stad");
                 String accommodatieLand = rs.getString("land");
                 String accommodatieType = rs.getString("soort");
-                Reservering reservering = new Reservering(idReservering, accommodatieCode, reizigersCode, aankomstDatum, vertrekDatum, betaald);
+                Reservering reservering = new Reservering(idReservering,  aankomstDatum, vertrekDatum, betaald,accommodatieCode, reizigersCode);
                 Reiziger reiziger = new Reiziger(reizigersCode, voornaam, achternaam, adres, postcode, plaats, land, hoofdreiziger);
                 Accommodatie accommodatie = new Accommodatie();
                 accommodatie.setNaam(accommodatieNaam);
@@ -67,7 +67,7 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
 
     }
 
-    public List<BoekingsOverzicht> getBoekingVoor(String reizigerscode) {
+    public List<BoekingsOverzicht> getBoekingVoor(String reizigersCode) {
 
         List<BoekingsOverzicht> reserveringVoor = new ArrayList<>();
 
@@ -77,7 +77,7 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
 
         try {
             PreparedStatement ps = getStatement(sql);
-            ps.setString(1, reizigerscode);
+            ps.setString(1, reizigersCode);
             ResultSet rs = executeSelectPreparedStatement(ps);
 
             while (rs.next()) {
@@ -96,12 +96,12 @@ public class MySQLBoekingsOverzicht extends MySQL<BoekingsOverzicht> {
                 String accommodatieLand = rs.getString("land");
                 String accommodatieType = rs.getString("soort");
 
-                Reservering reservering = new Reservering(idReservering, accommodatieCode, reizerCode, aankomstDatum, vertrekDatum, betaald);
+                Reservering reservering = new Reservering(idReservering,  aankomstDatum, vertrekDatum, betaald,accommodatieCode, reizerCode);
                 Accommodatie accommodatie = new Accommodatie();
                 accommodatie.setNaam(accommodatieNaam);
                 accommodatie.setStad(accommodatieStad);
                 accommodatie.setLand(accommodatieLand);
-                accommodatie.setType(accommodatieType);
+                accommodatie.setSoort(accommodatieType);
 
                 Reiziger reiziger = new Reiziger();
                 reiziger.setVoornaam(reizigerVoornaam);

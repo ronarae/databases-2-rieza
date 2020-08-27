@@ -31,7 +31,7 @@ public class MainApplication extends Application {
     private static MySQLSafariLodge mySQLSafariLodge = new MySQLSafariLodge();
     private static MySQLHotel mySQLHotel = new MySQLHotel();
     private static MySQLBoekingsOverzicht mySQLBoekingsOverzicht = new MySQLBoekingsOverzicht();
-    public static MySQLAccommodatie mySQLAccommodatie = new MySQLAccommodatie();
+    private static MySQLAccommodatie mySQLAccommodatie = new MySQLAccommodatie();
 
     private final int WIDTH = 800;
     private final int HEIGHT = 800;

@@ -10,6 +10,8 @@ import nl.hva.ict.views.View;
 
 import java.time.LocalDate;
 
+import static javafx.collections.FXCollections.observableArrayList;
+
 public class BoekingsGeboektOpController extends Controller {
 
     private final GeboektOpView geboektOpView;
@@ -19,7 +21,6 @@ public class BoekingsGeboektOpController extends Controller {
         geboektOpView.getComboBoxAccommodaties().getSelectionModel().selectedItemProperty().addListener(event -> ListAccommodaties());
         load();
     }
-
 
     private void load() {
         ObservableList<Accommodatie> accommodaties = FXCollections.observableArrayList(MainApplication.getMySQLAccommodatie().getAll());
@@ -33,7 +34,7 @@ public class BoekingsGeboektOpController extends Controller {
         LocalDate datum = geboektOpView.getDatePicker().getValue();
         // haal DB info op
 
-        ObservableList<Reiziger> reizigers = FXCollections.observableArrayList(MainApplication.getMySQLBoekingsOverzicht().GeboektOp(accommodatieCode, datum));
+        ObservableList<Reiziger> reizigers = observableArrayList(MainApplication.getMySQLBoekingsOverzicht().GeboektOp(accommodatieCode, datum));
         geboektOpView.getBoekingsOverzichtListView().setItems(reizigers);
 
 

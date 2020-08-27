@@ -46,9 +46,14 @@ public class HotelController extends Controller {
 
     private void getItemsInFields(){
         Hotel currentHotel = hotelView.getHotelsViewListView().getSelectionModel().getSelectedItem();
-        hotelView.getTxtPrijsPerNacht().setText(currentHotel.getAccommodatie_accommodatiecode());
-        hotelView.getCheckOntbijt().setText(currentHotel.getAccommodatie_accommodatiecode());
-
+        hotelView.getTxtAccommodatieCode().setText((currentHotel.getAccomodatiecode()));
+        hotelView.getTxtNaam().setText(currentHotel.getNaam());
+        hotelView.getTxtStad().setText(currentHotel.getStad());
+        hotelView.getTxtLand().setText(currentHotel.getLand());
+        hotelView.getTxtKamertype().setText(currentHotel.getKamer());
+        hotelView.getTxtAantalPersonen().setText((String.valueOf(currentHotel.getPersoon())));
+        hotelView.getTxtPrijsPerNacht().setText(String.valueOf(currentHotel.getPrijsPerNacht()));
+        hotelView.getCheckOntbijt().setSelected(currentHotel.isOntbijt());
     }
 
     @Override

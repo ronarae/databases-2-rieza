@@ -19,7 +19,7 @@ public class MySQLSafariLodge extends MySQL<SafariLodge>  {
 
     private void load() {
 
-        String sql = "SELECT * FROM SafariLodge";
+        String sql = "SELECT * FROM safarilodge INNER JOIN accommodatie ON safarilodge.Accommodatie_accommodatiecode = accommodatie.accommodatiecode";
 
         try {
             PreparedStatement ps = getStatement(sql);
@@ -27,15 +27,15 @@ public class MySQLSafariLodge extends MySQL<SafariLodge>  {
 
             while (rs.next()) {
                 String Accommodatie_accommodatiecode = rs.getString("Accommodatie_accommodatiecode");
-//                String naam = rs.getString("naam");
-//                String stad = rs.getString("stad");
-//                String land = rs.getString("land");
-//                String kamertype = rs.getString("kamertype");
+                String naam = rs.getString("naam");
+                String stad = rs.getString("stad");
+                String land = rs.getString("land");
+                String kamer = rs.getString("kamer");
+                int persoon = rs.getInt("persoon");
+                String soort = rs.getString("soort");
                 double prijsPerWeek = rs.getDouble("prijsPerWeek");
-              //  int aantalPersonen = rs.getInt("aantal personen");
                 boolean autohuur = rs.getBoolean("autohuur");
-                SafariLodge safariLodge = new SafariLodge(Accommodatie_accommodatiecode, prijsPerWeek, autohuur);
-                safariLodges.add(safariLodge);
+                safariLodges.add(new SafariLodge(Accommodatie_accommodatiecode, naam, stad, land, kamer, persoon, soort, prijsPerWeek, autohuur));
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -25,14 +25,14 @@ public class MySQLAccommodatie extends MySQL<Accommodatie>{
             ResultSet rs = executeSelectPreparedStatement(ps);
 
             while (rs.next()) {
-                String accommodatieCode = rs.getString("accommodatieCode");
+                String accommodatiecode = rs.getString("accommodatiecode");
                 String naam = rs.getString("naam");
                 String stad = rs.getString("stad");
                 String land = rs.getString("land");
                 String kamer = rs.getString("kamer");
                 int persoon = rs.getInt("persoon");
                 String soort = rs.getString("soort");
-                accommodaties.add(new Accommodatie(accommodatieCode, naam, stad, land, kamer, persoon, soort));
+                accommodaties.add(new Accommodatie(accommodatiecode, naam, stad, land, kamer, persoon, soort));
             }
         } catch (SQLException e) {
             e.printStackTrace();

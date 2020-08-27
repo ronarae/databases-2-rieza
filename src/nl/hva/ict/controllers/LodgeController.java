@@ -47,8 +47,14 @@ public class LodgeController extends Controller {
     }
     private void getItemsInFields(){
         SafariLodge currentSafariLodge = lodgeView.getLodgeViewListView().getSelectionModel().getSelectedItem();
-        lodgeView.getTxtPrijsPerWeek().setText(currentSafariLodge.getAccommodatie_accomodatiecode());
-        lodgeView.getCheckAutohuur().setText(currentSafariLodge.getAccommodatie_accomodatiecode());
+        lodgeView.getTxtAccommodatieCode().setText((currentSafariLodge.getAccomodatiecode()));
+        lodgeView.getTxtNaam().setText(currentSafariLodge.getNaam());
+        lodgeView.getTxtStad().setText(currentSafariLodge.getStad());
+        lodgeView.getTxtLand().setText(currentSafariLodge.getLand());
+        lodgeView.getTxtKamertype().setText(currentSafariLodge.getKamer());
+        lodgeView.getTxtAantalPersonen().setText((String.valueOf(currentSafariLodge.getPersoon())));
+        lodgeView.getTxtPrijsPerWeek().setText(String.valueOf(currentSafariLodge.getPrijsPerWeek()));
+        lodgeView.getCheckAutohuur().setSelected(currentSafariLodge.isAutohuur());
 
     }
 

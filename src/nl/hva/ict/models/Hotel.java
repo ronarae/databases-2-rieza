@@ -4,25 +4,24 @@ import nl.hva.ict.data.Identifable;
 
 import java.io.Serializable;
 
-public class Hotel implements Identifable, Serializable {
+public class Hotel  extends Accommodatie implements Identifable, Serializable {
 
-    private String Accommodatie_accommodatiecode;
+    private String accommodatiecode;
     private int prijsPerNacht;
     private boolean ontbijt;
 
-    public Hotel(String accommodatie_accommodatiecode, int prijsPerNacht, boolean ontbijt) {
-        this.Accommodatie_accommodatiecode = accommodatie_accommodatiecode;
+
+    public Hotel(String accommodatiecode, String naam, String stad, String land, String kamer,
+                 int persoon, String soort, int prijsPerNacht, boolean ontbijt) {
+        super (accommodatiecode, naam, stad, land, kamer, persoon, soort);
         this.prijsPerNacht = prijsPerNacht;
         this.ontbijt = ontbijt;
     }
 
-    public String getAccommodatie_accommodatiecode() {
-        return Accommodatie_accommodatiecode;
+    public String getAccommodatie_accomodatiecode() {
+        return accommodatiecode;
     }
 
-    public void setAccommodatie_accommodatiecode(String accommodatie_accommodatiecode) {
-        Accommodatie_accommodatiecode = accommodatie_accommodatiecode;
-    }
 
     public int getPrijsPerNacht() {
         return prijsPerNacht;
@@ -40,19 +39,19 @@ public class Hotel implements Identifable, Serializable {
         this.ontbijt = ontbijt;
     }
 
-    @Override
-    public String toString() {
-        if (ontbijt == false){
-            return "Accommodatie Code: " + Accommodatie_accommodatiecode + " Prijs per Nacht: " + prijsPerNacht +
-                    " Ontbijt: No";
-        } else {
-            return "Accommodatie Code: " + Accommodatie_accommodatiecode + " Prijs per Nacht: " + prijsPerNacht +
-                    " Ontbijt: Yes";
-
-        }
-
-
-
-
-    }
+//    @Override
+//    public String toString() {
+//        if (ontbijt == false){
+//            return "Accommodatie Code: " + accommodatiecode + " Prijs per Nacht: " + prijsPerNacht +
+//                    " Ontbijt: No";
+//        } else {
+//            return "Accommodatie Code: " + accommodatiecode + " Prijs per Nacht: " + prijsPerNacht +
+//                    " Ontbijt: Yes";
+//
+//        }
+//
+//
+//
+//
+//    }
 }

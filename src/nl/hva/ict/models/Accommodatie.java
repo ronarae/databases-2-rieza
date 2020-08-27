@@ -12,21 +12,27 @@ public class Accommodatie implements Identifable, Serializable {
     private String land;
     private String kamer;
     private int persoon;
-    private String type;
+    private String soort;
 
-    public Accommodatie(String accommodatiecode, String naam, String stad, String land, String kamer, int persoon, String type) {
+    public Accommodatie(String accommodatiecode, String naam, String stad, String land, String kamer, int persoon, String soort) {
         this.accommodatiecode = accommodatiecode;
         this.naam = naam;
         this.stad = stad;
         this.land = land;
         this.kamer = kamer;
         this.persoon = persoon;
-        this.type = type;
+        this.soort = soort;
     }
 
     public Accommodatie() {
     }
+    public String getSoort() {
+        return soort;
+    }
 
+    public void setSoort(String soort) {
+        this.soort = soort;
+    }
     public String getAccomodatiecode() {
         return accommodatiecode;
     }
@@ -75,12 +81,7 @@ public class Accommodatie implements Identifable, Serializable {
         this.persoon = persoon;
     }
 
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
-    }
+
 
     @Override
     public String toString() {
